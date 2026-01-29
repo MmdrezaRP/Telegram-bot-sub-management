@@ -49,7 +49,7 @@ conn.commit()
 
 # ================= HELPERS =================
 def is_admin(user_id):
-    return user_id == ADMIN_ID
+    return int(user_id) == ADMIN_ID
 
 
 def get_template():
