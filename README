@@ -1,3 +1,7 @@
 Requirements:
 
 pip install python-telegram-bot==20.7
+
+change these item: 
+TOKEN = "your telegram bot api"
+ADMIN_ID = (your telegram user id)
