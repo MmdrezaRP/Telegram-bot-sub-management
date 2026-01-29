@@ -14,8 +14,8 @@ from telegram.ext import (
 import sqlite3
 from datetime import datetime, timedelta
 
-TOKEN = "8585092411:AAGGYi56M-ftlHMuNxMXq5-QL0JYIVGdHQQ"
-ADMIN_ID = 169941775
+TOKEN = "your telegram bot api"
+ADMIN_ID = (your telegram user id)
 
 # ================= DATABASE =================
 conn = sqlite3.connect("bot.db", check_same_thread=False)
