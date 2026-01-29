@@ -51,7 +51,6 @@ conn.commit()
 def is_admin(user_id):
     return int(user_id) == ADMIN_ID
 
-
 def get_template():
     cursor.execute("SELECT content FROM config_template ORDER BY id DESC LIMIT 1")
     row = cursor.fetchone()
@@ -72,6 +71,17 @@ def user_menu():
 # ================= USER START =================
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user
+
+    # ✅ ADMIN BYPASS
+    if is_admin(user.id):
+        await update.message.reply_text(
+            "👑 Admin panel\n\n"
+            "Commands:\n"
+            "/setconfig – Set config template\n"
+            "/remove <user_id> – Remove user\n"
+            "/configfor <user_id> – Get user config"
+        )
+        return
 
     cursor.execute("SELECT status FROM users WHERE user_id = ?", (user.id,))
     row = cursor.fetchone()
